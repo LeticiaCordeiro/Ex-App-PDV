@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">PDV</string>
+    <string name="CodClie"> Codigo do Cliente</string>
+    <string name="CodProd"> Codigo do Produto</string>
+    <string name="NomeProd">Nome do Produto</string>
+    <string name="Prod">Cód.</string>
+    <string name="Add">ADD</string>
+    <string name="QTD">QTD</string>
+    <string name="Valor">Valor</string>
+    <string name="Desconto">Desconto</string>
+    <string name="Total">Total da compra</string>
+    <string name="TotalP">Total do Pedido: </string>
+    <string name="idVendedor">Id do Vendedor</string>
+    <string name="nomeVendedor">Nome Vendedor</string>
+    <string name="avista">À Vista</string>
+    <string name="prazo7">À Prazo(7Dias)</string>
+    <string name="cheque">Cheque</string>
+</resources>
