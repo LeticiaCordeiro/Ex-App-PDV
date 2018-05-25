@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -22,6 +24,8 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 import static android.R.layout.simple_list_item_1;
 
 public class MainActivity extends AppCompatActivity {
@@ -34,15 +38,14 @@ public class MainActivity extends AppCompatActivity {
     EditText IdClie;
     TextView NomeCliente;
 
-    EditText CodPro;
-    TextView Prod;
-    EditText QtdProd;
+    private EditText CodPro;
+    private TextView Prod;
+    private EditText QtdProd;
     private TextView NomeProd;
     private EditText precoprod;
-    ListView listviewProd;
-    String[] itens;
-    ArrayAdapter<String> itensAdapter;
-    private int ok =0 ;
+    private ListView listviewProd;
+    private ArrayList<String> itens;
+    private ArrayAdapter<String> itensAdapter;
 
     RadioGroup rg;
     RadioButton vista;
@@ -77,8 +80,11 @@ public class MainActivity extends AppCompatActivity {
         QtdProd = (EditText)findViewById (R.id.qtdprod);
         IdClie = (EditText)findViewById (R.id.IdCliente);
         NomeCliente = (TextView)findViewById (R.id.NomeCliente);
-        listviewProd = findViewById(R.id.listaprod);
+        listviewProd = (ListView) findViewById(R.id.listaprod);
 
+        itens = new ArrayList<String> ();
+        itensAdapter = new ArrayAdapter<String> (MainActivity.this,android.R.layout.simple_list_item_1,itens);
+        listviewProd.setAdapter (itensAdapter);
 
         mQueue = Volley.newRequestQueue (this);
         mQueueCl = Volley.newRequestQueue (this);
@@ -130,18 +136,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
             //add no listview
-            btnadd.setOnClickListener (new Button.OnClickListener () {
+           btnadd.setOnClickListener (new Button.OnClickListener () {
                 @Override
                 public void onClick(View view) {
-                    String IdProduto = CodPro.getText().toString();
-                    String Prod = NomeProd.getText().toString();
-                    String Preco = precoprod.getText().toString();
-                    String Qtd = QtdProd.getText().toString();
-
-                    itens = new String[]{IdProduto, Prod, Preco, Qtd};
-
-                    ArrayAdapter<String> itensAdapter = new ArrayAdapter<String> (MainActivity.this,android.R.layout.simple_list_item_1,itens);
-                    listviewProd.setAdapter (itensAdapter);
+                    AddProd ();
                 }
             });
 
@@ -159,25 +157,17 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    /*public void AddProd(View view) {
-
-        btnadd.setOnClickListener (new Button.OnClickListener () {
-            @Override
-            public void onClick(View view) {
-
-                String IdProduto = CodPro.getText().toString();
-                String Prod = NomeProd.getText().toString();
-                String Preco = precoprod.getText().toString();
-                String Qtd = QtdProd.getText().toString();
-
-                String[] itens ={IdProduto,Prod,Preco,Qtd};
-
-                //ArrayAdapter<String> itensAdapter = new ArrayAdapter<String> (MainActivity.this,android.R.layout.simple_list_item_1,itens);
-                listviewProd.setAdapter (itensAdapter);
-
-            }
-        });
-    }*/
+    public void AddProd() {
+        String IdProduto = CodPro.getText().toString();
+        String Prod = NomeProd.getText().toString();
+        String Preco = precoprod.getText().toString();
+        String Qtd = QtdProd.getText().toString();
+        String result = IdProduto + " || " + Prod + " || " + Preco + " || " + Qtd;
+        //String result2 =
+        itens.add (result);
+        //itens.add (result2);
+        itensAdapter.notifyDataSetChanged ();
+    }
 
     //Buscando o Produto
     private  void baixarJson(String Codigo) {
@@ -239,5 +229,5 @@ public class MainActivity extends AppCompatActivity {
 
         mQueueCl.add(request);
     }
-}
 
+}
