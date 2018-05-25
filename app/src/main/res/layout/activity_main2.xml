@@ -45,9 +45,9 @@
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="90dp"
             android:layout_marginTop="25dp"
-            android:background="@drawable/botaocomprara"
+            android:background="@drawable/botaog"
             android:gradientRadius="326"
             android:text="Nova venda "
             android:textColor="#ffffff"
