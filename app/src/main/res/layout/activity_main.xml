@@ -100,7 +100,6 @@
                     android:layout_width="144dp"
                     android:layout_height="60dp"
                     android:background="@drawable/botaog"
-                    android:onClick="AddProd"
                     android:shadowColor="#A8A8A8"
                     android:shadowDx="0"
                     android:shadowDy="0"
@@ -151,21 +150,21 @@
 
                 </LinearLayout>
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <ListView
                     android:id="@+id/listaprod"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="320dp"
+                    android:scrollbars="vertical"
+                    android:scrollbarSize="10dp">
 
                 </ListView>
-
             </LinearLayout>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -195,18 +194,18 @@
                     android:layout_height="match_parent">
 
                     <RadioButton
-                        android:id="@+id/vista"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="@string/avista" />
-
-                    <RadioButton
                         android:id="@+id/prazo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/prazo7" />
+
+                    <RadioButton
+                        android:id="@+id/vista"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/avista" />
 
                     <RadioButton
                         android:id="@+id/cheque"
