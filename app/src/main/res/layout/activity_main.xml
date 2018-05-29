@@ -156,14 +156,13 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <ListView
-                    android:id="@+id/listaprod"
-                    android:layout_width="match_parent"
-                    android:layout_height="320dp"
-                    android:scrollbars="vertical"
-                    android:scrollbarSize="10dp">
-
-                </ListView>
+                    <ListView
+                        android:id="@+id/listaprod"
+                        android:layout_width="match_parent"
+                        android:layout_height="320dp"
+                        android:scrollbars="vertical"
+                        android:scrollbarSize="10dp">
+                    </ListView>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -235,7 +234,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:text="0"
+                    android:inputType="number"/>
 
             </LinearLayout>
 
@@ -258,6 +258,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:text="0"
                     android:inputType="number" />
 
                 <TextView
@@ -287,7 +288,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="textPersonName" />
+                    android:text="0"
+                    android:inputType="number"/>
 
             </LinearLayout>
 
